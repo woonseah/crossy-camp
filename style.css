@@ -6,8 +6,3 @@ body {
 	font: inherit;
 	vertical-align: baseline;
 }
-
-/* Give canvas a background */
-canvas {
-  background-color:black;
-}
