@@ -1,3 +1,3 @@
 # crossy-camp
 
-Play @ woonseah.github.io/crossy-camp/
+Play @ https://woonseah.github.io/crossy-camp/
