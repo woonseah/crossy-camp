@@ -7,13 +7,6 @@ body {
 	vertical-align: baseline;
 }
 
-/* Center the container */
-#container {
-  padding-top:50px;
-  margin:0 auto;
-  width:480px;
-}
-
 /* Give canvas a background */
 canvas {
   background-color:black;
