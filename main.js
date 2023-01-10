@@ -278,7 +278,7 @@ function Chicken() {
     chicken.add(body);
 
     const rowel = new THREE.Mesh(
-        new THREE.BoxBufferGeometry( 21*zoom, 21*zoom, 8*zoom ), 
+        new THREE.BoxBufferGeometry( 18*zoom, 18*zoom, 8*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0x4B5320, flatShading: true } )
     );
     rowel.position.z = 21*zoom;
