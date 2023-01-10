@@ -186,7 +186,7 @@ function Car() {
   car.add(main)
   
   const cabin = new THREE.Mesh(
-    new THREE.BoxBufferGeometry( 33*zoom, 30*zoom, 12*zoom ), 
+    new THREE.BoxBufferGeometry( 35*zoom, 30*zoom, 12*zoom ), 
     [
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carBackTexture } ),
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carFrontTexture } ),
@@ -196,7 +196,7 @@ function Car() {
       new THREE.MeshPhongMaterial( { color: color, flatShading: true } ) // bottom
     ]
   );
-  cabin.position.x = 10*zoom; // 6
+  cabin.position.x = 12*zoom; // 6
   cabin.position.z = 25.5*zoom;
   cabin.castShadow = true;
   cabin.receiveShadow = true;
@@ -206,7 +206,7 @@ function Car() {
     new THREE.BoxBufferGeometry( 15*zoom, 15*zoom, 10*zoom ), 
     new THREE.MeshPhongMaterial( { 0x333333, flatShading: true } )
   );
-  spareWheel.position.x = -6*zoom;
+  spareWheel.position.x = -14*zoom;
   spareWheel.position.z = 12*zoom;
   spareWheel.castShadow = true;
   spareWheel.receiveShadow = true;
