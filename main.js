@@ -201,6 +201,16 @@ function Car() {
   cabin.receiveShadow = true;
   car.add( cabin );
   
+  const spareWheel = new THREE.Mesh(
+    new THREE.BoxBufferGeometry( 15*zoom, 15*zoom, 10*zoom ), 
+    new THREE.MeshPhongMaterial( { 0x333333, flatShading: true } )
+  );
+  spareWheel.position.x = -6*zoom;
+  spareWheel.position.z = 12*zoom;
+  spareWheel.castShadow = true;
+  spareWheel.receiveShadow = true;
+  car.add( spareWheel );
+
   const frontWheel = new Wheel();
   frontWheel.position.x = -18*zoom;
   car.add( frontWheel );
