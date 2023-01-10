@@ -60,7 +60,7 @@ scene.add( chicken );
 
 const laneTypes = ['car', 'truck', 'forest'];
 const laneSpeeds = [2, 2.5, 3];
-const vechicleColors = [0x78b14b, 0x3a5311, 0x234f1e];
+const vechicleColors = [0x3a5311, 0x234f1e];
 const threeHeights = [20,45,60];
 
 const initaliseValues = () => {
@@ -165,7 +165,7 @@ function Car() {
       new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true } ) // bottom
     ]
   );
-  cabin.position.x = 6*zoom;
+  cabin.position.x = -6*zoom; // 6
   cabin.position.z = 25.5*zoom;
   cabin.castShadow = true;
   cabin.receiveShadow = true;
@@ -278,8 +278,8 @@ function Chicken() {
     chicken.add(body);
 
     const rowel = new THREE.Mesh(
-        new THREE.BoxBufferGeometry( 2*zoom, 4*zoom, 2*zoom ), 
-        new THREE.MeshLambertMaterial( { color: 0xF0619A, flatShading: true } )
+        new THREE.BoxBufferGeometry( 21*zoom, 21*zoom, 4*zoom ), 
+        new THREE.MeshLambertMaterial( { color: 0x4B5320, flatShading: true } )
     );
     rowel.position.z = 21*zoom;
     rowel.castShadow = true;
