@@ -92,6 +92,30 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+document.addEventListener('resize', onWindowResize, false);
+
+function onWindowResize() {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+function onDocumentMouseMove(event) {
+    mouseX = event.clientX - windowHalfX / 2
+    mouseY = event.clientY - windowHalfY / 2
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    render();
+}
+
+function render() {
+    //camera.lookAt(scene.position);
+    renderer.render(scene, camera);
+}
 
 hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
 scene.add(hemiLight)
