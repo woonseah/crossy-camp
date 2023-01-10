@@ -1,5 +1,5 @@
 const scene = new THREE.Scene();
-const distance = 10000;
+const distance = 500;
 const camera = new THREE.OrthographicCamera( window.innerWidth/-2, window.innerWidth/2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 10000 );
 
 camera.rotation.x = 50*Math.PI/180;
@@ -12,7 +12,7 @@ camera.position.y = initialCameraPositionY;
 camera.position.x = initialCameraPositionX;
 camera.position.z = distance;
 
-const zoom = 2;
+const zoom = 1;
 
 const chickenSize = 15;
 
