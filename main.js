@@ -60,7 +60,7 @@ scene.add( chicken );
 
 const laneTypes = ['car', 'truck', 'forest'];
 const laneSpeeds = [2, 2.5, 3];
-const vechicleColors = [0xa52523, 0xbdb638, 0x78b14b];
+const vechicleColors = [0x78b14b, 0x3a5311, 0x234f1e];
 const threeHeights = [20,45,60];
 
 const initaliseValues = () => {
