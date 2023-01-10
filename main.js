@@ -12,7 +12,7 @@ camera.position.y = initialCameraPositionY;
 camera.position.x = initialCameraPositionX;
 camera.position.z = distance;
 
-const zoom = 1;
+const zoom = 1.5;
 
 const chickenSize = 15;
 
@@ -165,7 +165,7 @@ function Car() {
       new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true } ) // bottom
     ]
   );
-  cabin.position.x = -6*zoom; // 6
+  cabin.position.x = 10*zoom; // 6
   cabin.position.z = 25.5*zoom;
   cabin.castShadow = true;
   cabin.receiveShadow = true;
@@ -182,7 +182,7 @@ function Car() {
   car.castShadow = true;
   car.receiveShadow = false;
   
-  return car;  
+  return car;
 }
 
 function Truck() {
