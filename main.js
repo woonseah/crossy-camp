@@ -114,11 +114,6 @@ function onDocumentMouseMove(event) {
     mouseY = (event.clientY - windowHalfY) * 10;
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-    render();
-}
-
 function render() {
     //camera.lookAt(scene.position);
     renderer.render(scene, camera);
