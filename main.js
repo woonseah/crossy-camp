@@ -157,11 +157,11 @@ function Car() {
   const cabin = new THREE.Mesh(
     new THREE.BoxBufferGeometry( 33*zoom, 24*zoom, 12*zoom ), 
     [
-      new THREE.MeshPhongMaterial( { color: 0xcccccc, flatShading: true, map: carBackTexture } ),
-      new THREE.MeshPhongMaterial( { color: 0x555555, flatShading: true, map: carFrontTexture } ),
-      new THREE.MeshPhongMaterial( { color: 0xff0000, flatShading: true, map: carRightSideTexture } ),
-      new THREE.MeshPhongMaterial( { color: 0x00ff00, flatShading: true, map: carLeftSideTexture } ),
-      new THREE.MeshPhongMaterial( { color: 0x0000ff, flatShading: true } ), // top
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carBackTexture } ),
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carFrontTexture } ),
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carRightSideTexture } ),
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carLeftSideTexture } ),
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true } ), // top
       new THREE.MeshPhongMaterial( { color: color, flatShading: true } ) // bottom
     ]
   );
