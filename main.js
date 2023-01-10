@@ -173,7 +173,7 @@ function Car() {
   
   const main = new THREE.Mesh(
     new THREE.BoxBufferGeometry( 60*zoom, 30*zoom, 15*zoom ), 
-    new THREE.MeshPhongMaterial( { color, flatShading: true } )
+    new THREE.MeshPhongMaterial( { color: color, flatShading: true } )
   );
   main.position.z = 12*zoom;
   main.castShadow = true;
@@ -199,7 +199,7 @@ function Car() {
   
   const spareWheel = new THREE.Mesh(
     new THREE.BoxBufferGeometry( 15*zoom, 15*zoom, 10*zoom ), 
-    new THREE.MeshPhongMaterial( { 0x333333, flatShading: true } )
+    new THREE.MeshPhongMaterial( { color: 0x333333, flatShading: true } )
   );
   spareWheel.position.x = -14*zoom;
   spareWheel.position.z = 12*zoom;
