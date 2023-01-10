@@ -160,7 +160,7 @@ function Texture(width, height, rects) {
 
 function Wheel() {
     const wheel = new THREE.Mesh( 
-      new THREE.BoxBufferGeometry( 12*zoom, 33*zoom, 12*zoom ), 
+      new THREE.BoxGeometry( 12*zoom, 33*zoom, 12*zoom ), 
       new THREE.MeshLambertMaterial( { color: 0x333333, flatShading: true } ) 
     );
     wheel.position.z = 6*zoom;
@@ -172,7 +172,7 @@ function Car() {
   const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
   
   const main = new THREE.Mesh(
-    new THREE.BoxBufferGeometry( 60*zoom, 30*zoom, 15*zoom ), 
+    new THREE.BoxGeometry( 60*zoom, 30*zoom, 15*zoom ), 
     new THREE.MeshPhongMaterial( { color: color, flatShading: true } )
   );
   main.position.z = 12*zoom;
@@ -181,7 +181,7 @@ function Car() {
   car.add(main)
   
   const cabin = new THREE.Mesh(
-    new THREE.BoxBufferGeometry( 35*zoom, 30*zoom, 12*zoom ), 
+    new THREE.BoxGeometry( 35*zoom, 30*zoom, 12*zoom ), 
     [
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carBackTexture } ),
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carFrontTexture } ),
@@ -198,7 +198,7 @@ function Car() {
   car.add( cabin );
   
   const spareWheel = new THREE.Mesh(
-    new THREE.BoxBufferGeometry( 15*zoom, 15*zoom, 10*zoom ), 
+    new THREE.BoxGeometry( 15*zoom, 15*zoom, 10*zoom ), 
     new THREE.MeshPhongMaterial( { color: 0x333333, flatShading: true } )
   );
   spareWheel.position.x = -14*zoom;
@@ -227,14 +227,14 @@ function Truck() {
     
 
     const base = new THREE.Mesh(
-        new THREE.BoxBufferGeometry( 100*zoom, 25*zoom, 5*zoom ), 
+        new THREE.BoxGeometry( 100*zoom, 25*zoom, 5*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0xb4c6fc, flatShading: true } )
     );
     base.position.z = 10*zoom;
     truck.add(base)
 
     const cargo = new THREE.Mesh(
-      new THREE.BoxBufferGeometry( 75*zoom, 35*zoom, 40*zoom ), 
+      new THREE.BoxGeometry( 75*zoom, 35*zoom, 40*zoom ), 
       new THREE.MeshPhongMaterial( { color: color, flatShading: true } )
     );
     cargo.position.x = 15*zoom;
@@ -244,7 +244,7 @@ function Truck() {
     truck.add(cargo)
 
     const cabin = new THREE.Mesh(
-      new THREE.BoxBufferGeometry( 25*zoom, 30*zoom, 30*zoom ), 
+      new THREE.BoxGeometry( 25*zoom, 30*zoom, 30*zoom ), 
       [
         new THREE.MeshPhongMaterial( { color, flatShading: true } ), // back
         new THREE.MeshPhongMaterial( { color, flatShading: true, map: truckFrontTexture } ),
@@ -279,7 +279,7 @@ function Three() {
     const three = new THREE.Group();
     
     const trunk = new THREE.Mesh(
-      new THREE.BoxBufferGeometry( 15*zoom, 15*zoom, 20*zoom ), 
+      new THREE.BoxGeometry( 15*zoom, 15*zoom, 20*zoom ), 
       new THREE.MeshPhongMaterial( { color: 0x4d2926, flatShading: true } )
     );
     trunk.position.z = 10*zoom;
@@ -290,7 +290,7 @@ function Three() {
     height = threeHeights[Math.floor(Math.random()*threeHeights.length)];
 
     const crown = new THREE.Mesh(
-        new THREE.BoxBufferGeometry( 30*zoom, 30*zoom, height*zoom ), 
+        new THREE.BoxGeometry( 30*zoom, 30*zoom, height*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0x7aa21d, flatShading: true } )
     );
     crown.position.z = (height/2+20)*zoom;
@@ -305,7 +305,7 @@ function Chicken() {
     const chicken = new THREE.Group();
     
     const body = new THREE.Mesh(
-      new THREE.BoxBufferGeometry( chickenSize*zoom, chickenSize*zoom, 20*zoom ), 
+      new THREE.BoxGeometry( chickenSize*zoom, chickenSize*zoom, 20*zoom ), 
       new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } )
     );
     body.position.z = 10*zoom;
@@ -314,7 +314,7 @@ function Chicken() {
     chicken.add(body);
 
     const rowel = new THREE.Mesh(
-        new THREE.BoxBufferGeometry( 18*zoom, 18*zoom, 8*zoom ), 
+        new THREE.BoxGeometry( 18*zoom, 18*zoom, 8*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0x4B5320, flatShading: true } )
     );
     rowel.position.z = 21*zoom;
@@ -329,7 +329,7 @@ function Road() {
     const road = new THREE.Group();
 
     const createSection = color => new THREE.Mesh(
-        new THREE.PlaneBufferGeometry( boardWidth*zoom, positionWidth*zoom ), 
+        new THREE.PlaneGeometry( boardWidth*zoom, positionWidth*zoom ), 
         new THREE.MeshPhongMaterial( { color } )
     );
 
@@ -352,7 +352,7 @@ function Grass() {
     const grass = new THREE.Group();
 
     const createSection = color => new THREE.Mesh(
-        new THREE.BoxBufferGeometry( boardWidth*zoom, positionWidth*zoom, 3*zoom ), 
+        new THREE.BoxGeometry( boardWidth*zoom, positionWidth*zoom, 3*zoom ), 
         new THREE.MeshPhongMaterial( { color } )
     );
 
