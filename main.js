@@ -407,7 +407,7 @@ function Lane(index) {
         }
     }
 }
-document.getElementById('body').addEventListener("click", () => move('forward'));
+//document.getElementById('body').addEventListener("click", () => move('forward'));
 /*document.querySelector("#retry").addEventListener("click", () => {
     lanes.forEach(lane => scene.remove( lane.mesh ));
     initaliseValues();
