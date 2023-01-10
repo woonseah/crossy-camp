@@ -86,7 +86,7 @@ initaliseValues();
 
 const renderer = new THREE.WebGLRenderer({
   alpha: true,
-  antialias: true
+  antialias: false // true
 });
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
