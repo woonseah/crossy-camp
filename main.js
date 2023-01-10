@@ -490,7 +490,7 @@ function move(direction) {
     }, {lane: currentLane, column: currentColumn})
 
     if (direction === 'forward') {
-        if(lanes[finalPositions.lane+1].type === 'forest' && lanes[finalPositions.lane+1].occupiedPositions.has(finalPositions.column)) return;
+        //if(lanes[finalPositions.lane+1].type === 'forest' && lanes[finalPositions.lane+1].occupiedPositions.has(finalPositions.column)) return;
         if(!stepStartTimestamp) startMoving = true;
         addLane();
     }
