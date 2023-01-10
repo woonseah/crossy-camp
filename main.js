@@ -201,7 +201,7 @@ function Car() {
     new THREE.BoxGeometry( 15*zoom, 15*zoom, 10*zoom ), 
     new THREE.MeshPhongMaterial( { color: 0x333333, flatShading: true } )
   );
-  spareWheel.position.x = -14*zoom;
+  spareWheel.position.x = -18*zoom;
   spareWheel.position.z = 20*zoom;
   spareWheel.castShadow = true;
   spareWheel.receiveShadow = true;
