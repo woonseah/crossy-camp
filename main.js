@@ -564,12 +564,12 @@ function animate(timestamp) {
             switch(moves[0]) {
                 case 'forward': {
                     currentLane++;
-                    counterDOM.innerHTML = currentLane;    
+                    //counterDOM.innerHTML = currentLane;    
                     break;
                 }
                 case 'backward': {
                     currentLane--;
-                    counterDOM.innerHTML = currentLane;    
+                    //counterDOM.innerHTML = currentLane;    
                     break;
                 }
                 case 'left': {
@@ -596,7 +596,7 @@ function animate(timestamp) {
             const carMinX = vechicle.position.x - vechicleLength*zoom/2;
             const carMaxX = vechicle.position.x + vechicleLength*zoom/2;
             if(chickenMaxX > carMinX && chickenMinX < carMaxX) {
-                endDOM.style.visibility = 'visible';
+                //endDOM.style.visibility = 'visible';
             }
         });
     
