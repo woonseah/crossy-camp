@@ -92,7 +92,13 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+
+document.addEventListener('mousemove', onDocumentMouseMove, false);
 document.addEventListener('resize', onWindowResize, false);
+document.addEventListener('click', onClick, false);
+
+function onClick() { move('forward'); }
+
 
 function onWindowResize() {
     windowHalfX = window.innerWidth / 2;
@@ -103,8 +109,8 @@ function onWindowResize() {
 }
 
 function onDocumentMouseMove(event) {
-    mouseX = event.clientX - windowHalfX / 2
-    mouseY = event.clientY - windowHalfY / 2
+    mouseX = (event.clientX - windowHalfX) * 10;
+    mouseY = (event.clientY - windowHalfY) * 10;
 }
 
 function animate() {
