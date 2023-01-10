@@ -155,7 +155,7 @@ function Car() {
   car.add(main)
   
   const cabin = new THREE.Mesh(
-    new THREE.BoxBufferGeometry( 33*zoom, 24*zoom, 12*zoom ), 
+    new THREE.BoxBufferGeometry( 33*zoom, 30*zoom, 12*zoom ), 
     [
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carBackTexture } ),
       new THREE.MeshPhongMaterial( { color: color, flatShading: true, map: carFrontTexture } ),
@@ -407,7 +407,7 @@ function Lane(index) {
         }
     }
 }
-
+document.getElementById('body').addEventListener("click", () => move('forward'));
 /*document.querySelector("#retry").addEventListener("click", () => {
     lanes.forEach(lane => scene.remove( lane.mesh ));
     initaliseValues();
