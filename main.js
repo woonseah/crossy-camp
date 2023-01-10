@@ -264,12 +264,12 @@ function Truck() {
     frontWheel.position.x = -38*zoom;
     truck.add( frontWheel );
   
-    const middleWheel = new Wheel();
-    middleWheel.position.x = -10*zoom;
-    truck.add( middleWheel );
+    //const middleWheel = new Wheel();
+    //middleWheel.position.x = -10*zoom;
+    //truck.add( middleWheel );
 
     const backWheel = new Wheel();
-    backWheel.position.x = 30*zoom;
+    backWheel.position.x = 25*zoom;
     truck.add( backWheel );
     
     return truck;  
