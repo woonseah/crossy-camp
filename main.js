@@ -235,7 +235,7 @@ function Truck() {
 
     const cargo = new THREE.Mesh(
       new THREE.BoxBufferGeometry( 75*zoom, 35*zoom, 40*zoom ), 
-      new THREE.MeshPhongMaterial( { color: 0xb4c6fc, flatShading: true } )
+      new THREE.MeshPhongMaterial( { color: color, flatShading: true } )
     );
     cargo.position.x = 15*zoom;
     cargo.position.z = 30*zoom;
