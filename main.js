@@ -33,6 +33,24 @@ let windowHalfY;
 let total_gairs = 293;
 let accident_time = 0;
 
+const end_messages = [
+    innerHTML = [
+        "wah safety day siao liao",
+        "you excuse traffic lights ah",
+        "encik stress liao",
+        "need I teach you how cross road ah",
+        "now you really kena knock it down",
+        "owadio",
+        "you can rod liao",
+        "see la no more safety day off",
+        "you deserve the best nsf award",
+        "this even mo also cannot help you",
+        "driver must have micro sleep",
+        "driver never pull handbrake",
+        "siao confirm db liao",
+    ];
+let message_id = 0;
+
 const carFrontTexture = new Texture(40,80,[{x: 0, y: 10, w: 30, h: 60 }]);
 const carBackTexture = new Texture(40,80,[{x: 10, y: 10, w: 30, h: 60 }]);
 const carRightSideTexture = new Texture(110,40,[{x: 10, y: 0, w: 50, h: 30 }, {x: 70, y: 0, w: 30, h: 30 }]);
@@ -614,8 +632,9 @@ function animate(timestamp) {
             const carMinX = vechicle.position.x - vechicleLength*zoom/2;
             const carMaxX = vechicle.position.x + vechicleLength*zoom/2;
             if(chickenMaxX > carMinX && chickenMinX < carMaxX && window.getComputedStyle(document.getElementById('end_window')).visibility == "hidden") {
-		    document.getElementById('end_message').innerHTML = ["uh oh you si liao gg", "can rod liao", "your encik will be proud", "walk also cannot walk properly", "you excuse traffic lights ah", "now you really kena knock it down", "eh yo ord lo", "no more safety day off", "you deserve best nsf award"][Math.floor(Math.random() * 9)]
-		    document.getElementById('score').innerHTML = String(currentLane-1).replaceAll('0','O');
+		    document.getElementById('end_message').innerHTML = end_messages[message_id];  //end_messages[Math.floor(Math.random() * end_messages.length)]
+		    message_id = (message_id + 1) % end_messages.length;
+            document.getElementById('score').innerHTML = String(currentLane-1).replaceAll('0','O');
 		    total_gairs = total_gairs +1;
 		    document.getElementById('total_gair').innerHTML = String(total_gairs).replaceAll('0','O');
                 endDOM.style.visibility = 'visible';
