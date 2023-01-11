@@ -34,7 +34,6 @@ let total_gairs = 293;
 let accident_time = 0;
 
 const end_messages = [
-    innerHTML = [
         "wah safety day siao liao",
         "you excuse traffic lights ah",
         "encik stress liao",
