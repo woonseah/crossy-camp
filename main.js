@@ -95,7 +95,14 @@ document.addEventListener('mousemove', onDocumentMouseMove, false);
 document.addEventListener('resize', onWindowResize, false);
 document.addEventListener('click', onClick, false);
 
-function onClick() { move('forward'); }
+function onClick() {
+    if (window.getComputedStyle(document.getElementById('start_window')).visibility !== "hidden") {
+      document.getElementById('start_window').style.display = 'none';
+      return;
+    }
+    
+    move('forward');
+}
 
 
 function onWindowResize() {
