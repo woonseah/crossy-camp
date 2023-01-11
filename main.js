@@ -25,6 +25,15 @@ let previousTimestamp;
 let startMoving;
 let moves;
 let stepStartTimestamp;
+
+const carFrontTexture = new Texture(40,80,[{x: 0, y: 10, w: 30, h: 60 }]);
+const carBackTexture = new Texture(40,80,[{x: 10, y: 10, w: 30, h: 60 }]);
+const carRightSideTexture = new Texture(110,40,[{x: 10, y: 0, w: 50, h: 30 }, {x: 70, y: 0, w: 30, h: 30 }]);
+const carLeftSideTexture = new Texture(110,40,[{x: 10, y: 10, w: 50, h: 30 }, {x: 70, y: 10, w: 30, h: 30 }]);
+const truckFrontTexture = new Texture(30,30,[{x: 15, y: 0, w: 10, h: 30 }]);
+const truckRightSideTexture = new Texture(25,30,[{x: 0, y: 15, w: 10, h: 10 }]);
+const truckLeftSideTexture = new Texture(25,30,[{x: 0, y: 5, w: 10, h: 10 }]);
+
 // lane generation 
 const generateLanes = () => [-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9].map((index) => {
     const lane = new Lane(index);
@@ -150,10 +159,6 @@ function Wheel() {
 }
 
 // car stuff
-const carFrontTexture = new Texture(40,80,[{x: 0, y: 10, w: 30, h: 60 }]);
-const carBackTexture = new Texture(40,80,[{x: 10, y: 10, w: 30, h: 60 }]);
-const carRightSideTexture = new Texture(110,40,[{x: 10, y: 0, w: 50, h: 30 }, {x: 70, y: 0, w: 30, h: 30 }]);
-const carLeftSideTexture = new Texture(110,40,[{x: 10, y: 10, w: 50, h: 30 }, {x: 70, y: 10, w: 30, h: 30 }]);
 function Car() {
   const car = new THREE.Group();
   const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
@@ -208,9 +213,6 @@ function Car() {
   return car;
 }
 // truck stuff
-const truckFrontTexture = new Texture(30,30,[{x: 15, y: 0, w: 10, h: 30 }]);
-const truckRightSideTexture = new Texture(25,30,[{x: 0, y: 15, w: 10, h: 10 }]);
-const truckLeftSideTexture = new Texture(25,30,[{x: 0, y: 5, w: 10, h: 10 }]);
 function Truck() {
     const truck = new THREE.Group();
     const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
