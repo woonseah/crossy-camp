@@ -114,7 +114,7 @@ renderer.setPixelRatio( window.devicePixelRatio );
 document.body.appendChild( renderer.domElement );
 
 document.addEventListener('mousemove', onDocumentMouseMove, false);
-document.addEventListener('resize', onWindowResize, false);
+window.addEventListener('resize', onWindowResize, false);
 document.addEventListener('click', onClick, false);
 
 function onClick() {
@@ -138,19 +138,22 @@ function onWindowResize() {
     windowHalfX = window.innerWidth / 2;
     windowHalfY = window.innerHeight / 2;
     camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectMatrix();
+    camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-function onDocumentMouseMove(event) {
-    mouseX = (event.clientX - windowHalfX) * 10;
-    mouseY = (event.clientY - windowHalfY) * 10;
+
+function resize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+        renderer.setSize(width, height, false);
+    }
+    return needResize;
 }
 
-function render() {
-    //camera.lookAt(scene.position);
-    renderer.render(scene, camera);
-}
 // Light setup
 hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
 scene.add(hemiLight)
@@ -538,6 +541,10 @@ function move(direction) {
 }
 
 function animate(timestamp) {
+    if (resize(renderer)) {
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+    }
     requestAnimationFrame( animate );
     
     if(!previousTimestamp) previousTimestamp = timestamp;
