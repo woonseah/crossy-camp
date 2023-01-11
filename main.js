@@ -1,6 +1,8 @@
 const scene = new THREE.Scene();
 const distance = 500;
 
+counterDOM = document.getElementById('counter')
+
 // Setup camera
 const camera = new THREE.OrthographicCamera( window.innerWidth/-2, window.innerWidth/2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 10000 );
 camera.rotation.x = 50*Math.PI/180;
@@ -570,12 +572,12 @@ function animate(timestamp) {
             switch(moves[0]) {
                 case 'forward': {
                     currentLane++;
-                    //counterDOM.innerHTML = currentLane;    
+                    counterDOM.innerHTML = String(currentLane).replaceAll('0','O');    
                     break;
                 }
                 case 'backward': {
                     currentLane--;
-                    //counterDOM.innerHTML = currentLane;    
+                    counterDOM.innerHTML = String(currentLane).replaceAll('0','O');    
                     break;
                 }
                 case 'left': {
