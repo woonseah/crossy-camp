@@ -15,7 +15,7 @@ body {
 	overflow: hidden;
 }
 
-#counter div {
+#counter {
  	position: absolute;
 	font-size: 100%;
 	font-family: "8Bit";
