@@ -99,7 +99,7 @@ document.addEventListener('click', onClick, false);
 
 function onClick() {
     if (window.getComputedStyle(document.getElementById('start_window')).visibility !== "hidden") {
-      document.getElementById('start_window').style.display = 'none';
+      document.getElementById('start_window').style.visibility = 'hidden';
       return;
     }
     
