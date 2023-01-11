@@ -3,8 +3,8 @@
 	src: url('font/8bit_wonder/8-BIT WONDER.TTF') format('truetype');
 }
 
-* {
-	background: white;
+body {
+	background: black;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -15,6 +15,8 @@
 	overflow: hidden;
 }
 
-div {
+#counter div {
  position: absolute;
+	font-size: 100%;
+	font-family: "8Bit";
 }
