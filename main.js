@@ -59,7 +59,7 @@ scene.add( chicken );
 
 const laneTypes = ['car', 'truck', 'forest'];
 const laneSpeeds = [2, 2.5, 3];
-const vechicleColors = [0x3a5311, 0x234f1e];
+const vechicleColors = [0x3a5311, 0x234f1e, 0x909671, 0x75776e, 0x383b28];
 const threeHeights = [20,45,60];
 
 const initaliseValues = () => {
@@ -226,7 +226,7 @@ function Car() {
 // truck stuff
 function Truck() {
     const truck = new THREE.Group();
-    const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
+    const color = 0x495e35;
     const base = new THREE.Mesh(
         new THREE.BoxGeometry( 100*zoom, 25*zoom, 5*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0xb4c6fc, flatShading: true } )
