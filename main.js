@@ -384,7 +384,7 @@ function Lane(index) {
                 let position;
                 do {
                     position = Math.floor(Math.random()*columns);
-                }while(this.occupiedPositions.has(position))
+                }while(this.occupiedPositions.has(position)||position==8)
                 this.occupiedPositions.add(position);
                 three.position.x = (position*positionWidth+positionWidth/2)*zoom-boardWidth*zoom/2;
                 this.mesh.add( three );
@@ -479,7 +479,7 @@ function move(direction) {
     }, {lane: currentLane, column: currentColumn})
 
     if (direction === 'forward') {
-        //if(lanes[finalPositions.lane+1].type === 'forest' && lanes[finalPositions.lane+1].occupiedPositions.has(finalPositions.column)) return;
+        if(lanes[finalPositions.lane+1].type === 'forest' && lanes[finalPositions.lane+1].occupiedPositions.has(finalPositions.column)) return;
         if(!stepStartTimestamp) startMoving = true;
         addLane();
     }
