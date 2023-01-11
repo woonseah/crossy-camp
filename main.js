@@ -614,7 +614,7 @@ function animate(timestamp) {
             const carMinX = vechicle.position.x - vechicleLength*zoom/2;
             const carMaxX = vechicle.position.x + vechicleLength*zoom/2;
             if(chickenMaxX > carMinX && chickenMinX < carMaxX && window.getComputedStyle(document.getElementById('end_window')).visibility == "hidden") {
-		    document.getElementById('end_message').innerHTML = ["uh oh you si liao gg", "can rod liao", "your encik will be proud", "walk also cannot walk properly", "you excuse traffic lights ah", "now you really kena knock it down", "eh yo ord lo"][Math.floor(Math.random() * 10)]
+		    document.getElementById('end_message').innerHTML = ["uh oh you si liao gg", "can rod liao", "your encik will be proud", "walk also cannot walk properly", "you excuse traffic lights ah", "now you really kena knock it down", "eh yo ord lo", "no more safety day off", "you deserve best nsf award"][Math.floor(Math.random() * 9)]
 		    document.getElementById('score').innerHTML = String(currentLane-1).replaceAll('0','O');
 		    total_gairs = total_gairs +1;
 		    document.getElementById('total_gair').innerHTML = String(total_gairs).replaceAll('0','O');
