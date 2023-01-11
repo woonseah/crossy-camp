@@ -2,6 +2,7 @@ const scene = new THREE.Scene();
 const distance = 500;
 
 counterDOM = document.getElementById('counter')
+endDOM = document.getElementById('end_window')
 
 // Setup camera
 const camera = new THREE.OrthographicCamera( window.innerWidth/-2, window.innerWidth/2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 10000 );
@@ -29,6 +30,8 @@ let moves;
 let stepStartTimestamp;
 let windowHalfX;
 let windowHalfY;
+let total_gairs = 293;
+let accident_time = 0;
 
 const carFrontTexture = new Texture(40,80,[{x: 0, y: 10, w: 30, h: 60 }]);
 const carBackTexture = new Texture(40,80,[{x: 10, y: 10, w: 30, h: 60 }]);
@@ -39,7 +42,7 @@ const truckRightSideTexture = new Texture(25,30,[{x: 0, y: 15, w: 10, h: 10 }]);
 const truckLeftSideTexture = new Texture(25,30,[{x: 0, y: 5, w: 10, h: 10 }]);
 
 // lane generation 
-const generateLanes = () => [-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9].map((index) => {
+const generateLanes = () => [-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((index) => {
     const lane = new Lane(index);
     lane.mesh.position.y = index*positionWidth*zoom;
     scene.add( lane.mesh );
@@ -59,7 +62,7 @@ scene.add( chicken );
 
 const laneTypes = ['car', 'truck', 'forest'];
 const laneSpeeds = [2, 2.5, 3];
-const vechicleColors = [0x3a5311, 0x234f1e, 0x909671, 0x75776e, 0x383b28];
+const vechicleColors = [0x3a5311, 0x234f1e];
 const threeHeights = [20,45,60];
 
 const initaliseValues = () => {
@@ -76,7 +79,7 @@ const initaliseValues = () => {
 
     chicken.position.x = 0;
     chicken.position.y = 0;
-
+    startMoving = true;
     camera.position.y = initialCameraPositionY;
     camera.position.x = initialCameraPositionX;
 }
@@ -98,8 +101,15 @@ document.addEventListener('resize', onWindowResize, false);
 document.addEventListener('click', onClick, false);
 
 function onClick() {
+    if ((Date.now() - accident_time) < 200) return;
     if (window.getComputedStyle(document.getElementById('start_window')).visibility !== "hidden") {
       document.getElementById('start_window').style.visibility = 'hidden';
+      return;
+    }
+    if (window.getComputedStyle(document.getElementById('end_window')).visibility !== "hidden") {
+      document.getElementById('end_window').style.visibility = 'hidden';
+      currentLane = -1;
+      move('forward');
       return;
     }
     
@@ -172,7 +182,7 @@ function Wheel() {
 // car stuff
 function Car() {
   const car = new THREE.Group();
-  const color = vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
+  const color = [0x909671, 0x75776e, 0x383b28][Math.floor(Math.random() * 3)];
   
   const main = new THREE.Mesh(
     new THREE.BoxGeometry( 60*zoom, 30*zoom, 15*zoom ), 
@@ -226,7 +236,7 @@ function Car() {
 // truck stuff
 function Truck() {
     const truck = new THREE.Group();
-    const color = 0x495e35;
+    const color = [0x495e35][Math.floor(Math.random() * 1)]; // vechicleColors[Math.floor(Math.random() * vechicleColors.length)];
     const base = new THREE.Mesh(
         new THREE.BoxGeometry( 100*zoom, 25*zoom, 5*zoom ), 
         new THREE.MeshLambertMaterial( { color: 0xb4c6fc, flatShading: true } )
@@ -316,7 +326,7 @@ function Chicken() {
 
     const rowel = new THREE.Mesh(
         new THREE.BoxGeometry( 18*zoom, 18*zoom, 8*zoom ), 
-        new THREE.MeshLambertMaterial( { color: 0x4B5320, flatShading: true } )
+        new THREE.MeshLambertMaterial( { color: 0x689065, flatShading: true } )
     );
     rowel.position.z = 21*zoom;
     rowel.castShadow = true;
@@ -603,8 +613,13 @@ function animate(timestamp) {
         lanes[currentLane].vechicles.forEach(vechicle => {
             const carMinX = vechicle.position.x - vechicleLength*zoom/2;
             const carMaxX = vechicle.position.x + vechicleLength*zoom/2;
-            if(chickenMaxX > carMinX && chickenMinX < carMaxX) {
-                //endDOM.style.visibility = 'visible';
+            if(chickenMaxX > carMinX && chickenMinX < carMaxX && window.getComputedStyle(document.getElementById('end_window')).visibility == "hidden") {
+		    document.getElementById('end_message').innerHTML = ["uh oh you si liao gg", "can rod liao", "your encik will be proud", "walk also cannot walk properly", "you excuse traffic lights ah", "now you really kena knock it down", "eh yo ord lo"][Math.floor(Math.random() * 10)]
+		    document.getElementById('score').innerHTML = String(currentLane-1).replaceAll('0','O');
+		    total_gairs = total_gairs +1;
+		    document.getElementById('total_gair').innerHTML = String(total_gairs).replaceAll('0','O');
+                endDOM.style.visibility = 'visible';
+		    accident_time = Date.now();
             }
         });
     
