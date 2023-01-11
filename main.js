@@ -541,6 +541,7 @@ function move(direction) {
 
 function animate(timestamp) {
     if (resize(renderer)) {
+        canvas = renderer.domElement;
         camera.aspect = canvas.clientWidth / canvas.clientHeight;
         camera.updateProjectionMatrix();
     }
