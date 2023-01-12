@@ -14,6 +14,11 @@ body {
 	vertical-align: baseline;
 	overflow: hidden;
 }
+#best {
+ 	position: absolute;
+	font-size: 100%;
+	font-family: "8Bit";
+}
 
 #counter {
  	position: absolute;
