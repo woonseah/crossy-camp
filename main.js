@@ -2,6 +2,7 @@ const scene = new THREE.Scene();
 const distance = 500;
 
 counterDOM = document.getElementById('counter')
+pbDOM = document.getElementById('best')
 endDOM = document.getElementById('end_window')
 
 // Setup camera
@@ -32,21 +33,22 @@ let windowHalfX;
 let windowHalfY;
 let total_gairs = 293;
 let accident_time = 0;
+let pb = 0;
 
 const end_messages = [
         "wah safety day siao liao",
         "you excuse traffic lights ah",
         "encik stress liao",
         "need I teach you how cross road ah",
-        "now you really kena knock it down",
+        "now you really get knock it down",
         "owadio",
-        "you can rod liao",
         "see la no more safety day off",
         "you deserve the best nsf award",
-        "this even mo also cannot help you",
-        "driver must have micro sleep",
+        "even mo also cannot save you",
+        "driver must have micro slept",
         "driver never pull handbrake",
         "siao confirm db liao",
+        "thanks for playing",
     ];
 let message_id = 0;
 
@@ -606,7 +608,9 @@ function animate(timestamp) {
             switch(moves[0]) {
                 case 'forward': {
                     currentLane++;
-                    counterDOM.innerHTML = String(currentLane).replaceAll('0','O');    
+                    counterDOM.innerHTML = String(currentLane).replaceAll('0','O');
+                    if (currentLane > pb) pb = currentLane;
+                    pbDOM.innerHTML = String(pb).replaceAll('0','O');
                     break;
                 }
                 case 'backward': {
