@@ -126,7 +126,8 @@ function onClick() {
     }
     if (window.getComputedStyle(document.getElementById('end_window')).visibility !== "hidden") {
       document.getElementById('end_window').style.visibility = 'hidden';
-      currentLane = -1;
+      lanes.forEach(lane => scene.remove( lane.mesh ));
+      initaliseValues();
       move('forward');
       return;
     }
