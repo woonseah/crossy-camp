@@ -128,6 +128,7 @@ function onClick() {
       document.getElementById('end_window').style.visibility = 'hidden';
       lanes.forEach(lane => scene.remove( lane.mesh ));
       initaliseValues();
+      currentLane = -1;
       move('forward');
       return;
     }
