@@ -44,7 +44,7 @@ const end_messages = [
         "owadio",
         "see la no more safety day off",
         "you deserve the best nsf award",
-        "even mo also cannot save you",
+        "even the mo also cannot save you",
         "driver must have micro slept",
         "driver never pull handbrake",
         "siao confirm db liao",
